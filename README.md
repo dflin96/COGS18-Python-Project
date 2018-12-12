@@ -1,0 +1,2 @@
+# COGS18-Python-Project
+A project based on idea of Blockchain where virtual entities are created with init counter checks and no central authority. The project created virtual bank objects that contain various type of accounts (checking, savings, credit), and simulate behaviour across these objects (transactions, transfer, autopay), and simplified many elements such as no central authority. Ongoing project to improve complexity and improve realistic elements. 
