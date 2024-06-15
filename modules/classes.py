@@ -1,6 +1,7 @@
 from datetime import date, time
 import itertools
-import random
+import secrets
+
 class Bank():
     """Class created for bank entities
     
@@ -88,9 +89,9 @@ class Bank():
         (best to be equal but allow for error/missing values).
         starting_amounts will be defaulted as 0 if not positive values. 
         """
-        account_id = random.randint(10 ** 5, (10 ** 6) - 1)
+        account_id = secrets.SystemRandom().randint(10 ** 5, (10 ** 6) - 1)
         while account_id in self.accounts.keys():
-            account_id = random.randint(10 ** 5, (10 ** 6) - 1)
+            account_id = secrets.SystemRandom().randint(10 ** 5, (10 ** 6) - 1)
             
         new_account = Account(owner, account_id, self)
         self.accounts[str(account_id)] = new_account
@@ -196,9 +197,9 @@ class Bank():
         credit_limit: int or float
             limit of balances, must be >=0 or will default 100.
         """  
-        new_credit_card_num = random.randint(10 ** 16, 10 ** 17 -1)
+        new_credit_card_num = secrets.SystemRandom().randint(10 ** 16, 10 ** 17 -1)
         while new_credit_card_num in Bank.used_credit_card_num_lst:
-            new_credit_card_num = random.randint()
+            new_credit_card_num = secrets.SystemRandom().randint()
         Bank.used_credit_card_num_lst.append(new_credit_card_num)
         
         if credit_limit <= 0:
@@ -700,9 +701,9 @@ class Transaction():
         new_transaction_id: int
             random generated transaction id
         """
-        new_transaction_id = random.randint(10 ** 10, 10 ** 11 - 1)
+        new_transaction_id = secrets.SystemRandom().randint(10 ** 10, 10 ** 11 - 1)
         while new_transaction_id in Transaction.used_transaction_id:
-            new_transaction_id = random.randint(10 ** 10, 10 ** 11 -1)
+            new_transaction_id = secrets.SystemRandom().randint(10 ** 10, 10 ** 11 -1)
             
         Transaction.used_transaction_id.append(new_transaction_id)
         
